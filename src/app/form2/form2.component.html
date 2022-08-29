@@ -1,0 +1,29 @@
+<form [formGroup]="form" >
+
+    <div fxHide.xs style="margin-left: 16px;margin-top: 16px;">
+        <h2>Contato</h2>
+        <p>Set your login preferences, help us personalize your experience and make big account changes here</p>
+    </div>
+
+    <div fxLayout="row"  >
+    <mat-form-field fxFlex  >
+        <mat-label>email</mat-label>
+        <input id="email" matInput class="form-control" placeholder="email" formControlName="email">
+        <mat-error *ngIf="form.controls['email'].errors && form.controls['email'].errors['required']" >Campo requerido</mat-error>
+        <mat-error>{{form.controls['email']['errorMessage']}}</mat-error>
+        <mat-hint>email</mat-hint>
+    </mat-form-field>
+    </div>
+    <div fxLayout="row"  >
+
+    <mat-form-field fxFlex >
+        <mat-label>fone</mat-label>
+        <input id="fone" matInput appAutofocus class="form-control" placeholder="fone" formControlName="fone">
+        <mat-error *ngIf="form.controls['fone'].errors && form.controls['fone'].errors['required']" >Campo requerido</mat-error>
+        <mat-error *ngIf="form.controls['fone'].errors && form.controls['fone'].errors['phoneNumberInvalid']" >Formato inválido! use: 9999999999</mat-error>
+        <mat-error>{{form.controls['fone']['errorMessage']}}</mat-error>
+        <mat-hint>fone</mat-hint>
+    </mat-form-field>
+
+    </div>
+</form>

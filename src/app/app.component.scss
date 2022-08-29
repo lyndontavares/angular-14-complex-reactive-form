@@ -1,0 +1,52 @@
+.botao {
+    margin-left: 12px;
+  }
+
+  .botao-proximo {
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+
+  /* .mat-toolbar {
+    min-height: 52px !important;
+    height: 52px !important;
+    box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+  }
+   */
+
+
+
+
+
+
+
+  :host ::ng-deep.mat-tab-group {
+    flex-direction: row;
+  }
+  :host  ::ng-deep.mat-tab-header {
+  border-bottom: none;
+  }
+  :host ::ng-deep.mat-tab-header-pagination {
+  display: none !important;
+  }
+  :host ::ng-deep.mat-tab-labels {
+    flex-direction: column;
+  }
+  :host ::ng-deep.mat-tab-label {
+    justify-content: left !important;
+  }
+  :host ::ng-deep.mat-ink-bar {
+  height: 100%;
+  left: 98% !important;
+  }
+  :host ::ng-deep.mat-tab-body-wrapper {
+  flex: 1 1 auto;
+  }
+  :host ::ng-deep.mat-tab-label.mat-tab-label-active {
+     background-color: rgb(243, 243, 243);
+  }

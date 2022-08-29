@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$purple-palette, 900);
+$my-accent: mat.define-palette(mat.$purple-palette,900);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+ )
+));
+
+// Emit theme-dependent styles for common features used across multiple components.
+@include mat.core-theme($my-theme);
+
+// Emit styles for MatButton based on `$my-theme`. Because the configuration
+// passed to `define-light-theme` omits typography, `button-theme` will not
+// emit any typography styles.
+@include mat.button-theme($my-theme);
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color:rgb(241, 248, 247)}
+
+.mat-form-field {
+    margin: 16px;
+
+}
+
+.mat-tab-body-content { overflow: hidden!important}
+
+
+/* vertical tabs */
+/* :host ::ng-deep.mat-tab-group {
+    flex-direction: row;
+}
+:host  ::ng-deep.mat-tab-header {
+border-bottom: none;
+}
+:host ::ng-deep.mat-tab-header-pagination {
+display: none !important;
+}
+:host ::ng-deep.mat-tab-labels {
+  flex-direction: column;
+}
+:host ::ng-deep.mat-ink-bar {
+height: 100%;
+left: 98% !important;
+}
+:host ::ng-deep.mat-tab-body-wrapper {
+flex: 1 1 auto;
+}
+ */

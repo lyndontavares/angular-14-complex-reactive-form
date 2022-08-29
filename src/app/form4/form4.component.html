@@ -1,0 +1,54 @@
+<form [formGroup]="form" >
+
+
+    <div fxHide.xs style="margin-left: 16px;margin-top: 16px;">
+        <h2>Email</h2>
+        <p>Set your login preferences, help us personalize your experience and make big account changes here</p>
+    </div>
+
+    <div fxLayout="row"  >
+
+    <mat-form-field fxFlex >
+        <mat-label>f4name2</mat-label>
+        <input id="f4name2" matInput class="form-control" placeholder="f4name2" formControlName="f4name2">
+        <mat-spinner *ngIf="form.controls['f4name2'].pending" matSuffix diameter="16" style="display: inline-flex"></mat-spinner>
+
+        <mat-error *ngIf="form.controls['f4name2'].errors && form.controls['f4name2'].errors['required']" >requerido</mat-error>
+        <mat-error *ngIf="form.controls['f4name2'].errors && form.controls['f4name2'].errors['maxlength']" >tamanho</mat-error>
+        <mat-error *ngIf="form.controls['f4name2'].errors && form.controls['f4name2'].errors['taken']" >nome já existe</mat-error>
+        <mat-error>{{form.controls['f4name2']['errorMessage']}}</mat-error>
+        <mat-hint>tente: ABC</mat-hint>
+    </mat-form-field>
+    </div>
+
+  <div fxLayout="row"  >
+    <mat-form-field fxFlex >
+        <mat-label>f4email2</mat-label>
+        <input id="f4email2" matInput class="form-control" placeholder="f4email2" formControlName="f4email2">
+        <mat-spinner *ngIf="form.controls['f4email2'].pending" matSuffix diameter="16" style="display: inline-flex"></mat-spinner>
+
+        <mat-error *ngIf="form.controls['f4email2'].errors && form.controls['f4email2'].errors['required']" >requerido</mat-error>
+        <mat-error *ngIf="form.controls['f4email2'].errors && form.controls['f4email2'].errors['email']" >email inválido</mat-error>
+        <mat-error *ngIf="form.controls['f4email2'].errors && form.controls['f4email2'].errors['taken']" >email já existe</mat-error>
+        <mat-error>{{form.controls['f4email2']['errorMessage']}}</mat-error>
+        <mat-hint>f4email2</mat-hint>
+    </mat-form-field>
+    </div>
+
+</form>
+
+<br>
+
+
+
+
+
+<!--  The validation status of the control. There are four possible validation status values:
+VALID: This control has passed all validation checks.
+INVALID: This control has failed at least one validation check.
+PENDING: This control is in the midst of conducting a validation check.
+DISABLED: This control is exempt from validation checks -->
+
+<!--  {{form.controls['codigo']?.errors|json}}    <br>
+{{form.controls['nome']?.errors|json}}    <br>
+{{form.controls['endereco']?.errors|json}}    <br> -->

@@ -1,0 +1,96 @@
+<!-- https://tburleson-layouts-demos.firebaseapp.com/#/docs
+    https://github.com/angular/flex-layout/wiki/Responsive-API
+ -->
+  <form [formGroup]="form" >
+
+
+    <div fxHide.xs style="margin-left: 16px;margin-top: 16px;">
+        <h2>Basic information</h2>
+        <p>Set your login preferences, help us personalize your experience and make big account changes here</p>
+    </div>
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" >
+        <mat-form-field fxFlex ="20" >
+            <mat-label>Código</mat-label>
+            <input id="codigo" matInput class="form-control" placeholder="Código" formControlName="codigo">
+            <mat-error *ngIf="form.controls['codigo'].errors && form.controls['codigo'].errors['required']" >Preencha Corretamente</mat-error>
+            <mat-error *ngIf="form.controls['codigo'].errors && form.controls['codigo'].errors['validatorContext']" >Contexto não informado</mat-error>
+            <mat-error>{{form.controls['codigo']['errorMessage']}}</mat-error>
+            <mat-hint>codigo</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field  fxFlex  >
+            <mat-label>nome</mat-label>
+            <input id="nome" matInput class="form-control" placeholder="nome" formControlName="nome">
+            <mat-error *ngIf="form.controls['nome'].errors && form.controls['nome'].errors['required']" >requerido</mat-error>
+            <mat-error *ngIf="form.controls['nome'].errors && form.controls['nome'].errors['minlength']" >Tamanho minimo 10</mat-error>
+            <mat-error *ngIf="form.controls['nome'].errors && form.controls['nome'].errors['maxlength']" >Tamanho máximo 40</mat-error>
+            <mat-error>{{form.controls['nome']['errorMessage']}}</mat-error>
+            <mat-hint>nome</mat-hint>
+        </mat-form-field>
+</div>
+
+<div fxLayout="row"  fxLayout.sm="column" fxLayout.xs="column">
+        <mat-form-field  fxFlex >
+            <mat-label>endereco</mat-label>
+            <input id="endereco" matInput class="form-control" placeholder="endereco" formControlName="endereco">
+            <mat-error *ngIf="form.controls['endereco'].errors && form.controls['endereco'].errors['required']" >Campo requerido</mat-error>
+            <mat-error>{{form.controls['endereco']['errorMessage']}}</mat-error>
+            <mat-hint>endereco</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field fxFlex  >
+            <mat-label>idade</mat-label>
+            <input id="age" matInput class="form-control" placeholder="age" formControlName="age">
+            <mat-error *ngIf="form.controls['age'].errors && form.controls['age'].errors['negativeNumber']" >negativo</mat-error>
+            <mat-error *ngIf="form.controls['age'].errors && form.controls['age'].errors['required']" >requerido</mat-error>
+            <mat-error>{{form.controls['age']['errorMessage']}}</mat-error>
+            <mat-hint>age</mat-hint>
+        </mat-form-field>
+</div>
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+        <mat-form-field  fxFlex>
+            <mat-label>Room</mat-label>
+            <mat-select id="room" class="form-control" formControlName="room">
+              <mat-option *ngFor="let room of rooms" [value]="room">
+                {{ room.text }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.controls['room'].errors && form.controls['room'].errors['onlyAccessRoomsOver18']" >só para maiores de 18</mat-error>
+            <mat-error>{{form.controls['room']['errorMessage']}}</mat-error>
+        </mat-form-field>
+
+      <!--   matTooltip="alt + m Próximo campo" matTooltipPosition="right" -->
+        <mat-form-field   fxFlex >
+
+            <mat-label>author</mat-label>
+            <input id="author" matInput class="form-control" placeholder="author" formControlName="author">
+            <mat-spinner *ngIf="form.controls['author'].pending" matSuffix diameter="16" style="display: inline-flex"></mat-spinner>
+            <mat-error *ngIf="form.controls['author'].errors && form.controls['author'].errors['existAtuhor']" >Author existe</mat-error>
+            <mat-error *ngIf="form.controls['author'].errors && form.controls['author'].errors['nameEqualAtuhor']" >nome igual Atuhor</mat-error>
+            <mat-error *ngIf="form.controls['author'].errors && form.controls['author'].errors['nameTab3EqualAtuhor']" >nome tab3 igual Atuhor</mat-error>
+            <mat-error *ngIf="form.controls['author'].errors && form.controls['author'].errors['required']" >requerido</mat-error>
+            <mat-error *ngIf="form.controls['author'].errors && form.controls['author'].errors['minlength']" >minimo</mat-error>
+
+            <mat-error>{{form.controls['author']['errorMessage']}}</mat-error>
+            <mat-hint>Teste: Lyndon, Marianne</mat-hint>
+        </mat-form-field>
+</div>
+
+ </form>
+
+ <br>
+
+<!--  <h2 *ngIf="form.controls['zipcode'].status === 'PENDING';">Loading Zipcode...</h2> -->
+
+
+<!--  The validation status of the control. There are four possible validation status values:
+ VALID: This control has passed all validation checks.
+ INVALID: This control has failed at least one validation check.
+ PENDING: This control is in the midst of conducting a validation check.
+ DISABLED: This control is exempt from validation checks -->
+
+<!--  {{form.controls['codigo']?.errors|json}}    <br>
+ {{form.controls['nome']?.errors|json}}    <br>
+ {{form.controls['endereco']?.errors|json}}    <br> -->

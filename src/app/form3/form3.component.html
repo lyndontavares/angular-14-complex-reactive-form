@@ -1,0 +1,42 @@
+<form [formGroup]="form" >
+
+    <div fxHide.xs style="margin-left: 16px;margin-top: 16px;">
+        <h2>Usuário</h2>
+        <p>Set your login preferences, help us personalize your experience and make big account changes here</p>
+    </div>
+
+    <div fxLayout="row"  >
+    <mat-form-field fxFlex >
+        <mat-label>id</mat-label>
+        <input id="id" matInput class="form-control" placeholder="id" formControlName="id">
+        <mat-error>{{form.controls['id']['errorMessage']}}</mat-error>
+        <mat-hint>id</mat-hint>
+    </mat-form-field>
+    </div>
+
+    <div fxLayout="row"  >
+    <mat-form-field fxFlex >
+        <mat-label>nome</mat-label>
+        <input id="nome" matInput class="form-control" placeholder="nome" formControlName="nome">
+        <mat-error>{{form.controls['nome']['errorMessage']}}</mat-error>
+        <mat-hint>nome</mat-hint>
+    </mat-form-field>
+    </div>
+    <div fxLayout="row"  >
+
+    <mat-form-field fxFlex >
+        <mat-label>senha</mat-label>
+        <input id="senha" matInput class="form-control" placeholder="senha" formControlName="senha">
+        <mat-error>{{form.controls['senha']['errorMessage']}}</mat-error>
+        <mat-hint>senha</mat-hint>
+    </mat-form-field>
+    </div>
+
+
+</form>
+
+<br>
+
+<!--  {{form.controls['codigo']?.errors|json}}    <br>
+{{form.controls['nome']?.errors|json}}    <br>
+{{form.controls['endereco']?.errors|json}}    <br> -->
