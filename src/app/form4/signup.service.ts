@@ -21,7 +21,7 @@ export class SignupService {
       map((data: IUser[]) =>  data.length > 0),
       catchError((err) => {
         console.log('error', err);
-        return throwError(err);
+        return throwError(() => new Error(err));
       })
     )
   }
@@ -33,7 +33,7 @@ export class SignupService {
       map((data: IUser[]) =>  data.length > 0),
       catchError((err) => {
         console.log('error', err);
-        return throwError(err);
+        return throwError(() => new Error(err));
       })
     );
   }
